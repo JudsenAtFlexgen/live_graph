@@ -1,0 +1,76 @@
+<html>
+    <body>
+        <head>
+            <title>Welcome to the forbidden UI</title>
+            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+            <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+            <link rel="stylesheet" href="style/style.css">
+        </head>
+        <body>
+            <h1> Welcome to the forbidden UI!</h1>
+            <div class="container">
+                <canvas id="myChart" width="400" height="200"></canvas>
+            </div>
+
+            <script>
+                // Initial data for the chart
+                const initialData = {
+                    labels: [],
+                    datasets: [{
+                        label: 'Sales',
+                        data: [],
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1
+                    }]
+                };
+
+                // Configuration options
+                const config = {
+                    type: 'line',
+                    data: initialData,
+                    options: {
+                        animation: false,
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                min: -10000,
+                                max: 10000
+                            }
+                        }
+                    }
+                };
+
+                // Render the chart
+                const myChart = new Chart(
+                    document.getElementById('myChart'),
+                    config
+                );
+
+                // Function to update the chart data
+                function updateChart(newData) {
+                    // Clear the existing data
+                    myChart.data.labels = [];
+                    myChart.data.datasets = [];
+                    // Assuming all data arrays are the same length
+                    const dataLength = newData[0].data.length;
+                    // Create x-axis labels [0, 1, 2, ..., dataLength - 1]
+                    myChart.data.labels = Array.from({ length: dataLength }, (_, index) => index);
+                    // Process the new data
+                    newData.forEach(item => {
+                        const label = `${item.src_uri}/${item.key}`;
+                        myChart.data.datasets.push({
+                            label: label,
+                            data: item.data,
+                            borderWidth: 1
+                        });
+                    });
+                    myChart.update();
+                }
+            </script>
+
+            <div hx-get="/get_chart_data" hx-trigger="every 500ms" hx-target="#chart-script"></div>
+            <div id="chart-script" style="display:none;"></div>
+        </body>
+    </body>
+</html>
