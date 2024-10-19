@@ -1,9 +1,9 @@
 # Proof of Concept
-So the whole point I'm trying to demonstrate is that I could create a c interface to an existing cpp class (which will be site controller functionality) and then you can use the interfaces to _from golang_ 
-create visualizations.
+So the whole point I'm trying to demonstrate is that I could create a c interface to an existing cpp class 
+(which is SC functionality) and then you can use the interfaces to _from golang_ create visualizations.
 
 ## Bonus meme
-I have provided you a visualization using HTMX
+I have provided you a visualization using HTMX.
 
 ## How to build
 `./build.sh`
