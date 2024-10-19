@@ -5,15 +5,15 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start; /* Changed from center to flex-start */
-    min-height: 100vh; /* Changed from height to min-height */
-    background-color: #121212; /* Dark background */
-    color: #e0e0e0; /* Light text color */
+    justify-content: flex-start;
+    min-height: 100vh;
+    background-color: #121212;
+    color: #e0e0e0;
 }
 h1 {
-    color: #e0e0e0; /* Light text color */
+    color: #e0e0e0;
     font-size: 2.5em;
-    margin: 10px 0; /* Added margin to top and bottom */
+    margin: 10px 0;
     text-align: center;
 }
 .container {
@@ -25,18 +25,16 @@ h1 {
     margin: 10px 0;
 }
 #myChart {
-    background-color: #1e1e1e; /* Dark chart background */
+    background-color: #1e1e1e;
     padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Darker shadow */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     border-radius: 10px;
     flex: 1;
     margin-right: 10px;
 }
-/* Additional styles for chart elements */
 .chartjs-render-monitor {
-    background-color: #1e1e1e; /* Dark background for chart */
+    background-color: #1e1e1e;
 }
-
 .top-section {
     display: flex;
     align-items: flex-start;
@@ -46,74 +44,88 @@ h1 {
     margin-bottom: 20px;
 }
 
-/* Styles for the form */
+/* Styles for the form with 2 columns */
 form {
-    background-color: #1e1e1e; /* Dark background for the form */
+    background-color: #1e1e1e;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Darker shadow */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two equal-width columns */
+    gap: 10px 20px; /* Row and column gap */
+    align-items: center; /* Ensure that items are vertically centered */
     width: 100%;
-    max-width: 400px;
+    max-width: 800px;
 }
+
 form label {
-    margin-bottom: 10px;
     font-size: 1.2em;
+    margin-bottom: 5px;
+    grid-column: 1; /* Ensure label is placed in the first column */
 }
+
 form input {
     padding: 10px;
     border: none;
     border-radius: 5px;
-    margin-bottom: 10px;
     width: 100%;
-    max-width: 300px;
     background-color: #333;
     color: #e0e0e0;
+    grid-column: 2; /* Ensure input is placed in the second column */
+    margin-bottom: 10px;
 }
+
 form button {
+    grid-column: span 2; /* Make the button span both columns */
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
-    background-color: #2196F3; /* Blue button */
+    background-color: #2196F3;
     color: #fff;
     cursor: pointer;
     font-size: 1em;
 }
+
 form button:hover {
-    background-color: #1976D2; /* Darker blue on hover */
+    background-color: #1976D2;
 }
 
+/* Adjusted styles for a smaller table */
 #string-table {
-    width: 50%;
+    width: 30%; /* Reduced width to make the table smaller */
     background-color: #1e1e1e;
     border-collapse: collapse;
+    font-size: 0.8em; /* Smaller font size */
+    margin: 10px auto; /* Center the table */
 }
-
 #string-table th, #string-table td {
     border: 1px solid #444;
-    padding: 10px;
+    padding: 4px; /* Reduced padding */
     text-align: left;
 }
-
+#string-table th {
+    font-size: 0.9em; /* Slightly smaller header font */
+    padding: 6px; /* Smaller padding for header cells */
+}
+#string-table td {
+    font-size: 0.8em; /* Reduced font size for table content */
+    padding: 4px; /* Adjust padding for compactness */
+}
 #string-table button {
-    padding: 5px 10px;
+    padding: 3px 8px; /* Smaller button */
+    font-size: 0.8em; /* Smaller button text */
     background-color: #ff4444;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 3px; /* Slightly smaller radius */
     cursor: pointer;
 }
-
 #string-table button:hover {
     background-color: #cc0000;
 }
-
 /* Styles for the form response */
 #form-response {
     margin-top: 10px;
-    color: #e0e0e0; /* Light text color */
+    color: #e0e0e0;
 }
